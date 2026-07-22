@@ -689,7 +689,7 @@ def main():
     generate_time = (datetime.now(timezone.utc) + timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
 
     json_object = {
-        "version": 1,
+        "version": 3,
         "rules": [
             {
                 "domain_suffix": sorted(class_suffix_blocks),
