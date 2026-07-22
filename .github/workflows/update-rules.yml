@@ -1,0 +1,64 @@
+name: Update AdBlock Sing-box Rule-Set
+
+on:
+  schedule:
+    # 每天 UTC 16:00（北京时间次日 00:00）自动运行
+    - cron: "0 16 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-rules
+  cancel-in-progress: true
+
+env:
+  SING_BOX_VERSION: "1.13.14"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install sing-box ${{ env.SING_BOX_VERSION }}
+        run: |
+          curl -fsSL https://sing-box.app/install.sh | sh -s -- --version "${SING_BOX_VERSION}"
+          sing-box version
+
+      - name: Ensure rules directory exists
+        run: mkdir -p rules
+
+      - name: Generate adblock.json
+        run: python3 generate_adblock_rules.py
+
+      - name: Compile adblock.srs from adblock.json
+        run: sing-box rule-set compile --output rules/adblock.srs rules/adblock.json
+
+      - name: Show generated file summary
+        run: |
+          ls -lh rules/
+          echo "----- adblock.json 前 20 行 -----"
+          head -n 20 rules/adblock.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rules/adblock.json rules/adblock.srs rules/adblock_log.txt
+          if git diff --cached --quiet; then
+            echo "没有变更，跳过提交"
+          else
+            git commit -m "chore: update adblock rule-set ($(date -u '+%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
