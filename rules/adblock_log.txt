@@ -1,5 +1,5 @@
 正在加载 PSL 公共后缀列表...
-PSL 加载完成，共 9951 条
+PSL 加载完成，共 9950 条
 开始并发下载 300 个上游规则源...
 正在处理: https://adaway.org/hosts.txt
 正在处理: https://filters.adavoid.org/ultimate-ad-filter.txt
@@ -304,15 +304,15 @@ PSL 加载完成，共 9951 条
 正在执行自动降级机制与冲突检测...
 冲突检测完成，共有 169 个 SUFFIX 规则需降级为 DOMAIN
 正在构建三类域名集合与执行冗余剪枝...
-三类集合构建完成：Whitelist 2941 | DOMAIN 2821 | DOMAIN-SUFFIX 372650
+三类集合构建完成：Whitelist 2941 | DOMAIN 2808 | DOMAIN-SUFFIX 372960
 正在执行冲突父域子域精确补全（封堵降级导致的漏网之鱼）...
 冲突补全完成：新增 3065 条精确规则（封堵漏杀）
 
 ===== 生成完成 =====
-生成时间: 2026-07-22 17:42:20
-总规则数: 377908 (DOMAIN: 5258 | DOMAIN-SUFFIX: 372650)
+生成时间: 2026-07-23 01:13:45
+总规则数: 378205 (DOMAIN: 5245 | DOMAIN-SUFFIX: 372960)
 白名单放行: 2941
 PSL Apex DOMAIN (黑): 27
 PSL Apex Whitelist (白) 已全支持
 文件路径: /home/runner/work/Ads-rule/Ads-rule/rules/adblock.json
-Generated at 2026-07-22 17:42:20 | Total: 377908 | DOMAIN: 5258 | SUFFIX: 372650 | Whitelist: 2941 | Skipped: 1840295
+Generated at 2026-07-23 01:13:45 | Total: 378205 | DOMAIN: 5245 | SUFFIX: 372960 | Whitelist: 2941 | Skipped: 1840743
