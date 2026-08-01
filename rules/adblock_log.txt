@@ -304,15 +304,15 @@ PSL 加载完成，共 9950 条
 正在执行自动降级机制与冲突检测...
 冲突检测完成，共有 170 个 SUFFIX 规则需降级为 DOMAIN
 正在构建三类域名集合与执行冗余剪枝...
-三类集合构建完成：Whitelist 2950 | DOMAIN 2821 | DOMAIN-SUFFIX 375305
+三类集合构建完成：Whitelist 2950 | DOMAIN 2816 | DOMAIN-SUFFIX 375772
 正在执行冲突父域子域精确补全（封堵降级导致的漏网之鱼）...
 冲突补全完成：新增 3065 条精确规则（封堵漏杀）
 
 ===== 生成完成 =====
-生成时间: 2026-08-01 01:26:09
-总规则数: 380563 (DOMAIN: 5258 | DOMAIN-SUFFIX: 375305)
+生成时间: 2026-08-02 00:55:45
+总规则数: 381025 (DOMAIN: 5253 | DOMAIN-SUFFIX: 375772)
 白名单放行: 2950
 PSL Apex DOMAIN (黑): 28
 PSL Apex Whitelist (白) 已全支持
 文件路径: /home/runner/work/Ads-rule/Ads-rule/rules/adblock.json
-Generated at 2026-08-01 01:26:09 | Total: 380563 | DOMAIN: 5258 | SUFFIX: 375305 | Whitelist: 2950 | Skipped: 1841070
+Generated at 2026-08-02 00:55:45 | Total: 381025 | DOMAIN: 5253 | SUFFIX: 375772 | Whitelist: 2950 | Skipped: 1833020
